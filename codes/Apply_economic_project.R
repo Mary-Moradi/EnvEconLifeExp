@@ -57,37 +57,6 @@ ggplot()+
   labs(title = "World Map with Highlighted Countries has CO2_Emission more than vertex. (9.01)")+
   theme_minimal()
 
-
-# Equations ---------------------------------------------------------------
-# equations <- list()
-# equations[[1]] <- life ~ co2_emission  | country_code + as.factor(Years)
-# equations[[2]] <- life ~ I(co2_emission^2) + log(gdp_percapita) | country_code + as.factor(Years)
-# equations[[3]] <- life ~ I(co2_emission^2) + log(gdp_percapita) + (electricity) | country_code + as.factor(Years)
-# equations[[4]] <- life ~ I(co2_emission^2) + log(gdp_percapita) + (electricity) + log(population)  | country_code + as.factor(Years)
-# equations[[5]] <- life ~ I(co2_emission^2)+ log(gdp_percapita) + (electricity) + log(population) + expenditure_GDP  | country_code + as.factor(Years)
-# equations[[6]] <- life ~ I(co2_emission^2)+ log(gdp_percapita) + (electricity) + log(population) + expenditure_GDP+ mortality| country_code + as.factor(Years)
-# equations[[7]] <- life ~ co2_emission + log(gdp_percapita) + electricity + log(population) + expenditure_GDP + mortality + as.factor(Income_group) + I(co2_emission^2) | as.factor(country_code) + as.factor(Years)
-# 
-# res <- lapply(equations, function(e) fixest::feols(fml = as.formula(e), data = df, panel.id = ~country_code + Years + Income_group))
-# modelsummary(res, stars = TRUE)
-# 
-# # Quadratic_relation_co2&Life in different Income group ---------------------------------------------
-# equations[[8]] <- life ~ co2_emission * I(Income_group == "High income") +
-#   I(co2_emission^2) * I(Income_group == "High income") + log(gdp_percapita) + electricity +
-#   log(population) + expenditure_GDP + mortality + factor(country_code) + factor(Years)
-# 
-# # Upper middle income group interaction
-# equations[[9]] <- life ~ co2_emission * I(Income_group == "Upper middle income") +
-#   I(co2_emission^2) * I(Income_group == "Upper middle income") + log(gdp_percapita) + electricity +
-#   log(population) + expenditure_GDP + mortality + i(country_code, Years)
-# 
-# print(equations[9])
-# 
-# # Fit and summarize the new set of models
-# results <- lapply(equations[9], function(e) fixest::feols(fml = as.formula(e), data = df, panel.id = ~country_code + Years + Income_group))
-# 
-# modelsummary(results, stars = TRUE)
-
 equations1 <- list()
 equations1[[1]] <- life ~ co2_emission  | country_code + as.factor(Years)
 equations1[[2]] <- life ~ co2_emission + log(gdp_percapita) | country_code + as.factor(Years)
